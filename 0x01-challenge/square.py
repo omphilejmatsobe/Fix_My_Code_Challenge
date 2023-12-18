@@ -1,33 +1,31 @@
 #!/usr/bin/python3
-""" This is the Module for square """
+""" 
+User class
+"""
 
+class User():
+    """ Documentation """
 
-class Square():
-    """ Class Square"""
-    width = 0
-    height = 0
+    def __init__(self):
+        """ Documentation """
+        self.__email = None
 
-    def __init__(self, *args, **kwargs):
-        """ Initialization """
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+    @property
+    def email(self):
+        """ Documentation """
+        return self.__email
 
-    def area_of_my_square(self):
-        """ Area """
-        return self.width * self.height
+    @email.setter
+    def email(self, value):
+        """ Documentation """
+        if type(value) is not str:
+            raise TypeError("email must be a string")
+        self.__email = value
 
-    def permiter_of_my_square(self):
-        """ Perimeter """
-        return (self.width * 2) + (self.height * 2)
-
-    def __str__(self):
-        """ result  """
-        return "{}/{}".format(self.width, self.height)
-
-
+  
+    
 if __name__ == "__main__":
-    """ object creates square """
-    s = Square(width=12, height=9)
-    print(s)
-    print(s.area_of_my_square())
-    print(s.permiter_of_my_square())
+
+    u = User()
+    u.email = "john@snow.com"
+    print(u.email)
